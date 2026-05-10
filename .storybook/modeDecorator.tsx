@@ -13,22 +13,19 @@ const ModeDecorator = (Story: any) => {
   }
 
   return (
-    <div className="relative flex flex-col gap-4 items-end">
-      <Button
-        onClick={toggleDarkMode}
-        variant="quiet"
-        size="xs"
-        style={{
-          position: "sticky",
-          top: "4px",
-          right: "4px",
-          zIndex: 1000,
-        }}
-      >
-        Toggle Dark Mode: {isDarkMode ? "On" : "Off"}
-      </Button>
-      <div className="w-full bg-[var(--neutral-foreground)] min-h-[400px] p-4">
-        <Story />
+    <div className="bg-[var(--neutral-background)] flex flex-col">
+      {/* toolbar */}
+      <div className="sticky top-0 z-50 flex items-center justify-end px-4 py-2 bg-[var(--neutral-object)] border-b border-[var(--border-neutral-quiet)]">
+        <Button onClick={toggleDarkMode} variant="quiet" size="xs">
+          {isDarkMode ? "☀ Light mode" : "☾ Dark mode"}
+        </Button>
+      </div>
+
+      {/* story canvas */}
+      <div className="flex items-center justify-center p-6 min-h-[33vh]">
+        <div className="w-full max-w-[var(--container-md)] bg-[var(--neutral-foreground)] rounded-xl p-8">
+          <Story />
+        </div>
       </div>
     </div>
   )

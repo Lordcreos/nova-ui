@@ -8,7 +8,7 @@ const meta: Meta<typeof FileDropZone> = {
   component: FileDropZone,
   tags: ["autodocs"],
   parameters: { layout: "centered" },
-  decorators: [(Story) => <div className="w-[420px]"><Story /></div>],
+  decorators: [(Story) => <div className="w-full"><Story /></div>],
 }
 
 export default meta
