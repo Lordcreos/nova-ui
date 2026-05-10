@@ -1,0 +1,196 @@
+/* ============================================================
+   NOVA UI — Responsive Tokens
+   Breakpoints · Section padding utilities
+   ============================================================ */
+
+@theme {
+  /* ----------------------------------------------------------
+     BREAKPOINTS
+     ---------------------------------------------------------- */
+  --breakpoint-mobile: 320px;
+  --breakpoint-tablet: 769px;
+  --breakpoint-laptop: 992px;
+  --breakpoint-desktop: 1440px;
+}
+
+/* ----------------------------------------------------------
+   SECTION PADDING UTILITIES
+   All variants: p / px / py / pt / pr / pb / pl
+   Scale: mobile → tablet → laptop → desktop
+   ---------------------------------------------------------- */
+
+/* p-section-xl */
+@utility p-section-xl {
+  padding: 3rem;
+  @media (width >= 769px) { padding: 4rem; }
+  @media (width >= 992px) { padding: 6rem; }
+  @media (width >= 1440px) { padding: 7.75rem; }
+}
+@utility px-section-xl {
+  padding-inline: 3rem;
+  @media (width >= 769px) { padding-inline: 4rem; }
+  @media (width >= 992px) { padding-inline: 6rem; }
+  @media (width >= 1440px) { padding-inline: 7.75rem; }
+}
+@utility py-section-xl {
+  padding-block: 3rem;
+  @media (width >= 769px) { padding-block: 4rem; }
+  @media (width >= 992px) { padding-block: 6rem; }
+  @media (width >= 1440px) { padding-block: 7.75rem; }
+}
+@utility pt-section-xl {
+  padding-top: 3rem;
+  @media (width >= 769px) { padding-top: 4rem; }
+  @media (width >= 992px) { padding-top: 6rem; }
+  @media (width >= 1440px) { padding-top: 7.75rem; }
+}
+@utility pr-section-xl {
+  padding-right: 3rem;
+  @media (width >= 769px) { padding-right: 4rem; }
+  @media (width >= 992px) { padding-right: 6rem; }
+  @media (width >= 1440px) { padding-right: 7.75rem; }
+}
+@utility pb-section-xl {
+  padding-bottom: 3rem;
+  @media (width >= 769px) { padding-bottom: 4rem; }
+  @media (width >= 992px) { padding-bottom: 6rem; }
+  @media (width >= 1440px) { padding-bottom: 7.75rem; }
+}
+@utility pl-section-xl {
+  padding-left: 3rem;
+  @media (width >= 769px) { padding-left: 4rem; }
+  @media (width >= 992px) { padding-left: 6rem; }
+  @media (width >= 1440px) { padding-left: 7.75rem; }
+}
+
+/* p-section-lg */
+@utility p-section-lg {
+  padding: 2rem;
+  @media (width >= 769px) { padding: 3rem; }
+  @media (width >= 992px) { padding: 4rem; }
+  @media (width >= 1440px) { padding: 6rem; }
+}
+@utility px-section-lg {
+  padding-inline: 2rem;
+  @media (width >= 769px) { padding-inline: 3rem; }
+  @media (width >= 992px) { padding-inline: 4rem; }
+  @media (width >= 1440px) { padding-inline: 6rem; }
+}
+@utility py-section-lg {
+  padding-block: 2rem;
+  @media (width >= 769px) { padding-block: 3rem; }
+  @media (width >= 992px) { padding-block: 4rem; }
+  @media (width >= 1440px) { padding-block: 6rem; }
+}
+@utility pt-section-lg {
+  padding-top: 2rem;
+  @media (width >= 769px) { padding-top: 3rem; }
+  @media (width >= 992px) { padding-top: 4rem; }
+  @media (width >= 1440px) { padding-top: 6rem; }
+}
+@utility pr-section-lg {
+  padding-right: 2rem;
+  @media (width >= 769px) { padding-right: 3rem; }
+  @media (width >= 992px) { padding-right: 4rem; }
+  @media (width >= 1440px) { padding-right: 6rem; }
+}
+@utility pb-section-lg {
+  padding-bottom: 2rem;
+  @media (width >= 769px) { padding-bottom: 3rem; }
+  @media (width >= 992px) { padding-bottom: 4rem; }
+  @media (width >= 1440px) { padding-bottom: 6rem; }
+}
+@utility pl-section-lg {
+  padding-left: 2rem;
+  @media (width >= 769px) { padding-left: 3rem; }
+  @media (width >= 992px) { padding-left: 4rem; }
+  @media (width >= 1440px) { padding-left: 6rem; }
+}
+
+/* p-section-md */
+@utility p-section-md {
+  padding: 1.5rem;
+  @media (width >= 769px) { padding: 2rem; }
+  @media (width >= 992px) { padding: 3rem; }
+  @media (width >= 1440px) { padding: 4rem; }
+}
+@utility px-section-md {
+  padding-inline: 1.5rem;
+  @media (width >= 769px) { padding-inline: 2rem; }
+  @media (width >= 992px) { padding-inline: 3rem; }
+  @media (width >= 1440px) { padding-inline: 4rem; }
+}
+@utility py-section-md {
+  padding-block: 1.5rem;
+  @media (width >= 769px) { padding-block: 2rem; }
+  @media (width >= 992px) { padding-block: 3rem; }
+  @media (width >= 1440px) { padding-block: 4rem; }
+}
+@utility pt-section-md {
+  padding-top: 1.5rem;
+  @media (width >= 769px) { padding-top: 2rem; }
+  @media (width >= 992px) { padding-top: 3rem; }
+  @media (width >= 1440px) { padding-top: 4rem; }
+}
+@utility pr-section-md {
+  padding-right: 1.5rem;
+  @media (width >= 769px) { padding-right: 2rem; }
+  @media (width >= 992px) { padding-right: 3rem; }
+  @media (width >= 1440px) { padding-right: 4rem; }
+}
+@utility pb-section-md {
+  padding-bottom: 1.5rem;
+  @media (width >= 769px) { padding-bottom: 2rem; }
+  @media (width >= 992px) { padding-bottom: 3rem; }
+  @media (width >= 1440px) { padding-bottom: 4rem; }
+}
+@utility pl-section-md {
+  padding-left: 1.5rem;
+  @media (width >= 769px) { padding-left: 2rem; }
+  @media (width >= 992px) { padding-left: 3rem; }
+  @media (width >= 1440px) { padding-left: 4rem; }
+}
+
+/* p-section-sm */
+@utility p-section-sm {
+  padding: 1rem;
+  @media (width >= 769px) { padding: 1.5rem; }
+  @media (width >= 992px) { padding: 2rem; }
+  @media (width >= 1440px) { padding: 3rem; }
+}
+@utility px-section-sm {
+  padding-inline: 1rem;
+  @media (width >= 769px) { padding-inline: 1.5rem; }
+  @media (width >= 992px) { padding-inline: 2rem; }
+  @media (width >= 1440px) { padding-inline: 3rem; }
+}
+@utility py-section-sm {
+  padding-block: 1rem;
+  @media (width >= 769px) { padding-block: 1.5rem; }
+  @media (width >= 992px) { padding-block: 2rem; }
+  @media (width >= 1440px) { padding-block: 3rem; }
+}
+@utility pt-section-sm {
+  padding-top: 1rem;
+  @media (width >= 769px) { padding-top: 1.5rem; }
+  @media (width >= 992px) { padding-top: 2rem; }
+  @media (width >= 1440px) { padding-top: 3rem; }
+}
+@utility pr-section-sm {
+  padding-right: 1rem;
+  @media (width >= 769px) { padding-right: 1.5rem; }
+  @media (width >= 992px) { padding-right: 2rem; }
+  @media (width >= 1440px) { padding-right: 3rem; }
+}
+@utility pb-section-sm {
+  padding-bottom: 1rem;
+  @media (width >= 769px) { padding-bottom: 1.5rem; }
+  @media (width >= 992px) { padding-bottom: 2rem; }
+  @media (width >= 1440px) { padding-bottom: 3rem; }
+}
+@utility pl-section-sm {
+  padding-left: 1rem;
+  @media (width >= 769px) { padding-left: 1.5rem; }
+  @media (width >= 992px) { padding-left: 2rem; }
+  @media (width >= 1440px) { padding-left: 3rem; }
+}

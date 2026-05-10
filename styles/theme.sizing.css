@@ -1,0 +1,30 @@
+/* ============================================================
+   NOVA UI — Sizing Tokens
+   Container widths (horizontal) · Container heights (vertical)
+   ============================================================ */
+
+@theme {
+  /* ----------------------------------------------------------
+     CONTAINER WIDTHS
+     ---------------------------------------------------------- */
+  --container-xs: 27.5rem;    /* 440px */
+  --container-sm: 32.5rem;    /* 520px */
+  --container-md: 45rem;      /* 720px */
+  --container-lg: 60rem;      /* 960px */
+  --container-xl: 63.75rem;   /* 1020px */
+  --container-2xl: 82rem;     /* 1312px */
+  --container-3xl: 90rem;     /* 1440px */
+
+  /* ----------------------------------------------------------
+     CONTAINER HEIGHTS
+     ---------------------------------------------------------- */
+  --container-h-3xs: 15rem;   /* 240px */
+  --container-h-2xs: 20rem;   /* 320px */
+  --container-h-xs: 27.5rem;  /* 440px */
+  --container-h-sm: 32.5rem;  /* 520px */
+  --container-h-md: 40rem;    /* 640px */
+  --container-h-lg: 45rem;    /* 720px */
+  --container-h-xl: 52.5rem;  /* 840px */
+  --container-h-2xl: 57.5rem; /* 920px */
+  --container-h-3xl: 65rem;   /* 1040px */
+}

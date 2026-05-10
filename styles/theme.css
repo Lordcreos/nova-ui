@@ -1,0 +1,13 @@
+/* ============================================================
+   NOVA UI — Theme Entry Point
+   Imports all token layers in order
+   ============================================================ */
+
+@import "tailwindcss";
+
+@import "./theme.colors.css";
+@import "./theme.responsive.css";
+@import "./theme.shadows.css";
+@import "./theme.sizing.css";
+@import "./theme.typography.css";
+@import "./theme.animations.css";

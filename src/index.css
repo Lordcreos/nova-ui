@@ -1,0 +1,26 @@
+@import "../styles/theme.css";
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--neutral-background);
+    color: var(--text-body);
+    line-height: 1.5;
+  }
+
+  :focus-visible {
+    outline: none;
+  }
+}

@@ -1,0 +1,72 @@
+/* ============================================================
+   NOVA UI — Shadow Tokens
+   3 families: neutral (gray) · action (blue) · danger (red)
+   7 levels each: xs → 3xl  (double-layer for naturalism)
+   ============================================================ */
+
+@theme {
+  /* ----------------------------------------------------------
+     NEUTRAL — Gray shadows for cards and surfaces
+     ---------------------------------------------------------- */
+  --shadow-neutral-xs:
+    0px 1px 2px rgba(17, 20, 24, 0.08),
+    0px 0px 0px 1px rgba(17, 20, 24, 0.04);
+
+  --shadow-neutral-sm:
+    0px 2px 4px rgba(17, 20, 24, 0.10),
+    0px 1px 2px rgba(17, 20, 24, 0.06);
+
+  --shadow-neutral-md:
+    0px 4px 8px rgba(17, 20, 24, 0.12),
+    0px 2px 4px rgba(17, 20, 24, 0.08);
+
+  --shadow-neutral-lg:
+    0px 8px 16px rgba(17, 20, 24, 0.14),
+    0px 4px 8px rgba(17, 20, 24, 0.08);
+
+  --shadow-neutral-xl:
+    0px 12px 24px rgba(17, 20, 24, 0.18),
+    0px 6px 12px rgba(17, 20, 24, 0.10);
+
+  --shadow-neutral-2xl:
+    0px 16px 32px rgba(17, 20, 24, 0.22),
+    0px 8px 16px rgba(17, 20, 24, 0.12);
+
+  --shadow-neutral-3xl:
+    0px 18px 32px -12px rgba(17, 20, 24, 0.32),
+    0px 4px 6px rgba(17, 20, 24, 0.08);
+
+  /* ----------------------------------------------------------
+     ACTION — Blue shadows for primary elements
+     ---------------------------------------------------------- */
+  --shadow-action-xs:
+    0px 1px 2px rgba(59, 130, 246, 0.20),
+    0px 0px 0px 1px rgba(59, 130, 246, 0.12);
+
+  --shadow-action-sm:
+    0px 2px 6px rgba(59, 130, 246, 0.28),
+    0px 1px 2px rgba(59, 130, 246, 0.16);
+
+  --shadow-action-md:
+    0px 4px 12px rgba(59, 130, 246, 0.32),
+    0px 2px 4px rgba(59, 130, 246, 0.20);
+
+  --shadow-action-lg:
+    0px 8px 20px rgba(59, 130, 246, 0.36),
+    0px 4px 8px rgba(59, 130, 246, 0.24);
+
+  /* ----------------------------------------------------------
+     DANGER — Red shadows for error states
+     ---------------------------------------------------------- */
+  --shadow-danger-xs:
+    0px 0px 0px 3px rgba(239, 68, 68, 0.12),
+    0px 1px 2px rgba(239, 68, 68, 0.16);
+
+  --shadow-danger-sm:
+    0px 2px 6px rgba(239, 68, 68, 0.20),
+    0px 0px 0px 3px rgba(239, 68, 68, 0.12);
+
+  --shadow-danger-md:
+    0px 4px 12px rgba(239, 68, 68, 0.24),
+    0px 0px 0px 3px rgba(239, 68, 68, 0.16);
+}
