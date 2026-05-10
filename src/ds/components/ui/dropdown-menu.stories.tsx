@@ -20,7 +20,12 @@ const meta: Meta<typeof DropdownMenu> = {
   title: "UI/DropdownMenu",
   component: DropdownMenu,
   tags: ["autodocs"],
-  parameters: { layout: "centered" },
+  parameters: {
+    layout: "centered",
+    docs: {
+      story: { inline: false, height: "260px" },
+    },
+  },
 }
 
 export default meta
@@ -28,7 +33,7 @@ type Story = StoryObj<typeof DropdownMenu>
 
 export const Default: Story = {
   render: () => (
-    <DropdownMenu>
+    <DropdownMenu defaultOpen>
       <DropdownMenuTrigger asChild>
         <Button variant="tertiary">Open menu</Button>
       </DropdownMenuTrigger>
@@ -46,7 +51,7 @@ export const Default: Story = {
 
 export const Selection: Story = {
   render: () => (
-    <DropdownMenu>
+    <DropdownMenu defaultOpen>
       <DropdownMenuTrigger asChild>
         <Button variant="tertiary">View options</Button>
       </DropdownMenuTrigger>
@@ -66,7 +71,7 @@ export const Selection: Story = {
 
 export const Submenu: Story = {
   render: () => (
-    <DropdownMenu>
+    <DropdownMenu defaultOpen>
       <DropdownMenuTrigger asChild>
         <Button variant="tertiary">Share</Button>
       </DropdownMenuTrigger>

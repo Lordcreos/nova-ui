@@ -1,6 +1,6 @@
 import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
-import { cn } from "../../lib/utils"
+import { cnCustom } from "../../lib/utils"
 
 const headingVariants = cva("font-semibold tracking-tight", {
   variants: {
@@ -55,7 +55,7 @@ function Heading({ variant = "h1", color, as, className, ...props }: HeadingProp
   return (
     <Tag
       data-slot="heading"
-      className={cn(headingVariants({ variant, color, className }))}
+      className={cnCustom(headingVariants({ variant, color, className }))}
       {...props}
     />
   )

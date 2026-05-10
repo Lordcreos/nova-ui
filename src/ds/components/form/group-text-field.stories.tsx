@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react"
+import { Button } from "../ui/button"
 import { Input } from "../ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select"
 import { GroupTextField, GroupTextFieldRow } from "./group-text-field"
@@ -44,6 +45,34 @@ export const GridGroup: Story = {
       <GroupTextFieldRow>
         <Input placeholder="Country" />
       </GroupTextFieldRow>
+    </GroupTextField>
+  ),
+}
+
+export const WithButton: Story = {
+  render: () => (
+    <GroupTextField label="API Key" helperText="Copy and store this key securely.">
+      <Input placeholder="sk-••••••••••••••••••••" readOnly defaultValue="sk-1a2b3c4d5e6f7g8h" />
+      <Button variant="tertiary">Copy</Button>
+    </GroupTextField>
+  ),
+}
+
+export const SearchWithFilter: Story = {
+  render: () => (
+    <GroupTextField label="Search users">
+      <Select defaultValue="email">
+        <SelectTrigger>
+          <SelectValue />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectItem value="email">By email</SelectItem>
+          <SelectItem value="name">By name</SelectItem>
+          <SelectItem value="id">By ID</SelectItem>
+        </SelectContent>
+      </Select>
+      <Input placeholder="Search…" />
+      <Button variant="default">Search</Button>
     </GroupTextField>
   ),
 }

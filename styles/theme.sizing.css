@@ -1,6 +1,6 @@
 /* ============================================================
-   NOVA UI — Sizing Tokens
-   Container widths (horizontal) · Container heights (vertical)
+   NOVA UI - Sizing Tokens
+   Container widths and container heights
    ============================================================ */
 
 @theme {
@@ -27,4 +27,99 @@
   --container-h-xl: 52.5rem;  /* 840px */
   --container-h-2xl: 57.5rem; /* 920px */
   --container-h-3xl: 65rem;   /* 1040px */
+}
+
+/* ----------------------------------------------------------
+   SIZE VARIABLES
+   px-based aliases for direct CSS custom property usage.
+   ---------------------------------------------------------- */
+:root {
+  --size-horizontal-3xl: 1440px;
+  --size-horizontal-2xl: 1312px;
+  --size-horizontal-xl: 1020px;
+  --size-horizontal-lg: 960px;
+  --size-horizontal-md: 720px;
+  --size-horizontal-sm: 520px;
+  --size-horizontal-xs: 440px;
+
+  --size-vertical-3xl: 1040px;
+  --size-vertical-2xl: 920px;
+  --size-vertical-xl: 840px;
+  --size-vertical-lg: 720px;
+  --size-vertical-md: 640px;
+  --size-vertical-sm: 520px;
+  --size-vertical-xs: 440px;
+  --size-vertical-2xs: 320px;
+  --size-vertical-3xs: 240px;
+}
+
+/* ----------------------------------------------------------
+   SIZE UTILITY CLASSES
+   Explicit classes keep sizing tokens available whenever the
+   theme CSS is imported.
+   ---------------------------------------------------------- */
+@layer utilities {
+  .size-horizontal-3xl {
+    width: var(--size-horizontal-3xl);
+  }
+
+  .size-horizontal-2xl {
+    width: var(--size-horizontal-2xl);
+  }
+
+  .size-horizontal-xl {
+    width: var(--size-horizontal-xl);
+  }
+
+  .size-horizontal-lg {
+    width: var(--size-horizontal-lg);
+  }
+
+  .size-horizontal-md {
+    width: var(--size-horizontal-md);
+  }
+
+  .size-horizontal-sm {
+    width: var(--size-horizontal-sm);
+  }
+
+  .size-horizontal-xs {
+    width: var(--size-horizontal-xs);
+  }
+
+  .size-vertical-3xl {
+    height: var(--size-vertical-3xl);
+  }
+
+  .size-vertical-2xl {
+    height: var(--size-vertical-2xl);
+  }
+
+  .size-vertical-xl {
+    height: var(--size-vertical-xl);
+  }
+
+  .size-vertical-lg {
+    height: var(--size-vertical-lg);
+  }
+
+  .size-vertical-md {
+    height: var(--size-vertical-md);
+  }
+
+  .size-vertical-sm {
+    height: var(--size-vertical-sm);
+  }
+
+  .size-vertical-xs {
+    height: var(--size-vertical-xs);
+  }
+
+  .size-vertical-2xs {
+    height: var(--size-vertical-2xs);
+  }
+
+  .size-vertical-3xs {
+    height: var(--size-vertical-3xs);
+  }
 }

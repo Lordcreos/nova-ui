@@ -25,7 +25,7 @@ const avatarVariants = cva("relative inline-flex shrink-0 overflow-hidden", {
 })
 
 const avatarFallbackVariants = cva(
-  "flex h-full w-full items-center justify-center font-semibold text-[var(--text-on-solid)] text-xs select-none",
+  "flex h-full w-full items-center justify-center rounded-[inherit] font-semibold text-[var(--text-on-solid)] text-xs select-none",
   {
     variants: {
       color: {
@@ -123,7 +123,7 @@ function AvatarImage({ className, ...props }: React.ComponentProps<typeof Avatar
   return (
     <AvatarPrimitive.Image
       data-slot="avatar-image"
-      className={cn("aspect-square h-full w-full object-cover", className)}
+      className={cn("aspect-square h-full w-full rounded-[inherit] object-cover", className)}
       {...props}
     />
   )

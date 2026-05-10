@@ -1,7 +1,11 @@
 import * as React from "react"
 import * as ToastPrimitive from "@radix-ui/react-toast"
+import { Toaster as SonnerProvider } from "sonner"
 import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "../../lib/utils"
+import { Avatar, AvatarFallback } from "./avatar"
+import { Icon } from "./icon"
+import { Button } from "./button"
 
 const ToastProvider = ToastPrimitive.Provider
 
@@ -127,6 +131,111 @@ function Toaster() {
   )
 }
 
+// ─── Sonner-based Toast system ────────────────────────────────────────────────
+
+interface CustomToastProps {
+  type: "success" | "error" | "info" | "warning"
+  title: string
+  description?: string
+  customIcon?: React.ReactNode
+  customAction?: React.ReactNode
+  dismiss: () => void
+}
+
+function CustomToast({
+  type,
+  title,
+  description,
+  customIcon,
+  customAction,
+  dismiss,
+}: CustomToastProps) {
+  const getIcon = () => {
+    if (customIcon) return customIcon
+    switch (type) {
+      case "success":
+        return (
+          <Avatar shape="square" size="xs">
+            <AvatarFallback shape="square" color="success" type="icon">
+              <Icon name="circle-check" size="sm" />
+            </AvatarFallback>
+          </Avatar>
+        )
+      case "error":
+        return (
+          <Avatar shape="square" size="xs">
+            <AvatarFallback shape="square" color="danger" type="icon">
+              <Icon name="circle-x" size="sm" />
+            </AvatarFallback>
+          </Avatar>
+        )
+      case "info":
+        return (
+          <Avatar shape="square" size="xs">
+            <AvatarFallback shape="square" color="action" type="icon">
+              <Icon name="info" size="sm" />
+            </AvatarFallback>
+          </Avatar>
+        )
+      case "warning":
+        return (
+          <Avatar shape="square" size="xs">
+            <AvatarFallback shape="square" color="warning" type="icon">
+              <Icon name="triangle-alert" size="sm" />
+            </AvatarFallback>
+          </Avatar>
+        )
+    }
+  }
+
+  return (
+    <div
+      className={cn(
+        "w-screen max-w-[416px] p-3 bg-[var(--neutral-object)] shadow-[var(--shadow-neutral-lg)]",
+        "flex justify-between gap-2.5 rounded-xl border border-[var(--border-neutral-quiet)]",
+        customAction && "items-center",
+      )}
+    >
+      <div className="flex items-start gap-2.5">
+        <div>{getIcon()}</div>
+        <div>
+          <p className="text-sm font-semibold text-[var(--text-heading)] leading-snug">{title}</p>
+          {description && (
+            <p className="text-xs text-[var(--text-body-quiet)] mt-0.5 leading-relaxed">{description}</p>
+          )}
+        </div>
+      </div>
+      <div className={cn(customAction && "flex items-center")}>
+        {customAction ?? (
+          <Button
+            type="button"
+            variant="ghost"
+            size="icon"
+            aria-label="Cerrar notificación"
+            onClick={dismiss}
+          >
+            <Icon name="x" size="sm" />
+          </Button>
+        )}
+      </div>
+    </div>
+  )
+}
+
+/**
+ * Drop this once anywhere near the root of your app (e.g. in App.tsx).
+ * It renders the Sonner portal that displays CustomToast notifications.
+ */
+function SonnerToaster(props: React.ComponentProps<typeof SonnerProvider>) {
+  return (
+    <SonnerProvider
+      position="bottom-right"
+      toastOptions={{ unstyled: true }}
+      {...props}
+    />
+  )
+}
+
 export {
   ToastProvider,
   ToastViewport,
@@ -136,5 +245,7 @@ export {
   ToastAction,
   ToastClose,
   Toaster,
+  CustomToast,
+  SonnerToaster,
 }
-export type { ToastProps }
+export type { ToastProps, CustomToastProps }

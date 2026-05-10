@@ -3,7 +3,7 @@
    Imports all token layers in order
    ============================================================ */
 
-@import "tailwindcss";
+@import "tailwindcss" source("../src");
 
 @import "./theme.colors.css";
 @import "./theme.responsive.css";

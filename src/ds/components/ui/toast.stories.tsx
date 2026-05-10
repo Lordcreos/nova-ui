@@ -43,7 +43,7 @@ export const Default: Story = {
 
 export const Variants: Story = {
   render: () => (
-    <div className="grid w-[420px] gap-3">
+    <ToastProvider>
       {(["default", "success", "danger", "warning", "info"] as const).map((variant) => (
         <Toast key={variant} variant={variant} open>
           <div className="grid gap-1">
@@ -52,6 +52,7 @@ export const Variants: Story = {
           </div>
         </Toast>
       ))}
-    </div>
+      <ToastViewport className="static w-[420px] max-h-none flex-col gap-3 p-0" />
+    </ToastProvider>
   ),
 }

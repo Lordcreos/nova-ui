@@ -224,3 +224,100 @@
   --ring-action: var(--color-blue-500);
   --ring-danger: var(--color-red-500);
 }
+
+/* ============================================================
+   DARK MODE — override semantic tokens only
+   Apply by adding .dark to <html> (Level 1 base palette unchanged)
+   ============================================================ */
+
+.dark {
+  /* ----------------------------------------------------------
+     LEVEL 2 — SEMANTIC SURFACES
+     ---------------------------------------------------------- */
+  --neutral-background:            var(--color-gray-950);
+  --neutral-foreground:            var(--color-gray-900);
+  --neutral-object:                var(--color-gray-800);
+  --neutral-object-accent-silent:  rgba(255, 255, 255, 0.03);
+  --neutral-object-accent-quiet:   rgba(255, 255, 255, 0.06);
+  --neutral-object-accent:         rgba(255, 255, 255, 0.09);
+  --neutral-object-accent-loud:    rgba(255, 255, 255, 0.18);
+
+  /* Action */
+  --surface-action-solid:         var(--color-blue-500);
+  --surface-action-solid-hover:   var(--color-blue-400);
+  --surface-action-solid-active:  var(--color-blue-300);
+  --surface-action-accent:        var(--color-blue-alpha-300);
+  --surface-action-accent-quiet:  var(--color-blue-alpha-200);
+  --surface-action-accent-loud:   var(--color-blue-alpha-400);
+  --surface-action-accent-hover:  var(--color-blue-alpha-200);
+
+  /* Success */
+  --surface-success-solid:         var(--color-emerald-500);
+  --surface-success-solid-hover:   var(--color-emerald-400);
+  --surface-success-accent:        var(--color-emerald-alpha-300);
+  --surface-success-accent-quiet:  var(--color-emerald-alpha-200);
+  --surface-success-accent-loud:   var(--color-emerald-alpha-300);
+
+  /* Info */
+  --surface-info-solid:         var(--color-violet-500);
+  --surface-info-solid-hover:   var(--color-violet-400);
+  --surface-info-accent:        var(--color-violet-alpha-300);
+  --surface-info-accent-quiet:  var(--color-violet-alpha-200);
+  --surface-info-accent-loud:   var(--color-violet-alpha-300);
+
+  /* Warning */
+  --surface-warning-solid:         var(--color-amber-500);
+  --surface-warning-solid-hover:   var(--color-amber-400);
+  --surface-warning-accent:        var(--color-amber-alpha-300);
+  --surface-warning-accent-quiet:  var(--color-amber-alpha-200);
+  --surface-warning-accent-loud:   var(--color-amber-alpha-300);
+
+  /* Danger */
+  --surface-danger-solid:         var(--color-red-500);
+  --surface-danger-solid-hover:   var(--color-red-400);
+  --surface-danger-accent:        var(--color-red-alpha-300);
+  --surface-danger-accent-quiet:  var(--color-red-alpha-200);
+  --surface-danger-accent-loud:   var(--color-red-alpha-300);
+
+  /* ----------------------------------------------------------
+     LEVEL 3 — TEXT TOKENS
+     ---------------------------------------------------------- */
+  --text-heading-loud:  var(--color-gray-50);
+  --text-heading:       var(--color-gray-100);
+  --text-heading-quiet: var(--color-gray-400);
+
+  --text-body-loud:     var(--color-gray-100);
+  --text-body:          var(--color-gray-300);
+  --text-body-quiet:    var(--color-gray-500);
+
+  --text-action:   var(--color-blue-400);
+  --text-success:  var(--color-emerald-400);
+  --text-info:     var(--color-violet-400);
+  --text-warning:  var(--color-amber-400);
+  --text-danger:   var(--color-red-400);
+
+  --text-on-solid:    #ffffff;
+  --text-on-disabled: var(--color-gray-600);
+
+  /* ----------------------------------------------------------
+     LEVEL 4 — BORDER TOKENS
+     ---------------------------------------------------------- */
+  --border-neutral-loud:   var(--color-gray-600);
+  --border-neutral:        var(--color-gray-700);
+  --border-neutral-quiet:  var(--color-gray-800);
+  --border-neutral-silent: var(--color-gray-900);
+
+  --border-contextual-action:          var(--color-blue-600);
+  --border-contextual-action-quiet:    var(--color-blue-800);
+  --border-contextual-success:         var(--color-emerald-600);
+  --border-contextual-success-quiet:   var(--color-emerald-800);
+  --border-contextual-info:            var(--color-violet-600);
+  --border-contextual-info-quiet:      var(--color-violet-800);
+  --border-contextual-warning:         var(--color-amber-600);
+  --border-contextual-warning-quiet:   var(--color-amber-800);
+  --border-contextual-danger:          var(--color-red-600);
+  --border-contextual-danger-quiet:    var(--color-red-800);
+
+  --ring-action:  var(--color-blue-400);
+  --ring-danger:  var(--color-red-400);
+}

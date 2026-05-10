@@ -1,5 +1,4 @@
 import { cn } from "../../lib/utils"
-import { Button } from "../ui/button"
 
 interface TablePaginationProps {
   currentPage: number
@@ -46,6 +45,15 @@ function getPageRange(current: number, total: number, maxVisible = 5): (number |
   return pages
 }
 
+const cellBase = [
+  "inline-flex h-9 items-center justify-center",
+  "bg-[var(--neutral-object)] text-[var(--text-body)]",
+  "text-sm font-semibold select-none whitespace-nowrap",
+  "transition-colors duration-150",
+  "focus-visible:outline-none focus-visible:z-10",
+  "focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ring-action)]",
+].join(" ")
+
 function TablePagination({
   currentPage,
   totalPages,
@@ -75,72 +83,76 @@ function TablePagination({
       <p className="min-w-0 shrink text-sm text-[var(--text-body-quiet)]">
         Showing{" "}
         <span className="font-semibold text-[var(--text-body)]">
-          {from}-{to}
+          {from}–{to}
         </span>{" "}
         of{" "}
         <span className="font-semibold text-[var(--text-body)]">{totalItems}</span>
       </p>
 
-      <div className="flex shrink-0 items-center gap-1">
-        <Button
-          variant="tertiary"
-          size="xs"
+      <div
+        className="inline-flex shrink-0 items-stretch overflow-hidden rounded-lg border border-[var(--border-neutral)] shadow-[var(--shadow-neutral-xs)] divide-x divide-[var(--border-neutral)]"
+        role="list"
+      >
+        <button
+          role="listitem"
           onClick={() => {
             onPrevious?.()
             if (!onPrevious) onPageChange(currentPage - 1)
           }}
           disabled={!canPrev}
           aria-label="Previous page"
-          className="h-8 min-w-16 px-2.5"
+          className={cn(cellBase, "gap-1.5 px-3 hover:bg-[var(--neutral-object-accent-quiet)] disabled:opacity-40 disabled:pointer-events-none")}
         >
           <svg className="h-4 w-4 shrink-0" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path d="M10 12L6 8L10 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
           Prev
-        </Button>
+        </button>
 
-        <div className="flex items-center gap-1" role="list">
-          {pages.map((page, idx) =>
-            page === "ellipsis" ? (
-              <span
-                key={`ellipsis-${idx}`}
-                role="presentation"
-                className="inline-flex h-8 w-8 shrink-0 items-center justify-center text-sm leading-none text-[var(--text-body-quiet)]"
-              >
-                ...
-              </span>
-            ) : (
-              <Button
-                key={page}
-                variant={page === currentPage ? "default" : "ghost"}
-                size="icon"
-                onClick={() => onPageChange(page)}
-                aria-label={`Page ${page}`}
-                aria-current={page === currentPage ? "page" : undefined}
-                className="h-8 w-8 shrink-0"
-              >
-                {page}
-              </Button>
-            )
-          )}
-        </div>
+        {pages.map((page, idx) =>
+          page === "ellipsis" ? (
+            <span
+              key={`ellipsis-${idx}`}
+              role="presentation"
+              className="inline-flex h-9 w-9 items-center justify-center text-sm text-[var(--text-body-quiet)] bg-[var(--neutral-object)] select-none"
+            >
+              …
+            </span>
+          ) : (
+            <button
+              key={page}
+              role="listitem"
+              onClick={() => onPageChange(page)}
+              aria-label={`Page ${page}`}
+              aria-current={page === currentPage ? "page" : undefined}
+              className={cn(
+                cellBase,
+                "w-9",
+                page === currentPage
+                  ? "bg-[var(--surface-action-solid)] text-[var(--text-on-solid)] hover:bg-[var(--surface-action-solid-hover)] z-10"
+                  : "hover:bg-[var(--neutral-object-accent-quiet)]"
+              )}
+            >
+              {page}
+            </button>
+          )
+        )}
 
-        <Button
-          variant="tertiary"
-          size="xs"
+        <button
+          role="listitem"
           onClick={() => {
             onNext?.()
             if (!onNext) onPageChange(currentPage + 1)
           }}
           disabled={!canNext}
           aria-label="Next page"
-          className="h-8 min-w-16 px-2.5"
+          className={cn(cellBase, "gap-1.5 px-3 hover:bg-[var(--neutral-object-accent-quiet)] disabled:opacity-40 disabled:pointer-events-none")}
         >
           Next
           <svg className="h-4 w-4 shrink-0" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path d="M6 4L10 8L6 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-        </Button>
+        </button>
       </div>
     </nav>
   )

@@ -6,7 +6,12 @@ const meta: Meta<typeof Popover> = {
   title: "UI/Popover",
   component: Popover,
   tags: ["autodocs"],
-  parameters: { layout: "centered" },
+  parameters: {
+    layout: "centered",
+    docs: {
+      story: { inline: false, height: "220px" },
+    },
+  },
 }
 
 export default meta
@@ -14,7 +19,7 @@ type Story = StoryObj<typeof Popover>
 
 export const Default: Story = {
   render: () => (
-    <Popover>
+    <Popover defaultOpen>
       <PopoverTrigger asChild>
         <Button variant="tertiary">Open popover</Button>
       </PopoverTrigger>

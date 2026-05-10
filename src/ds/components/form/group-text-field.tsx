@@ -147,6 +147,7 @@ function GroupTextField({
       <div
         aria-invalid={hasError || undefined}
         aria-describedby={hasError ? `${groupId}-error` : helperText ? `${groupId}-helper` : undefined}
+        className={cn(!hasRows && "flex")}
       >
         {processedChildren}
       </div>
