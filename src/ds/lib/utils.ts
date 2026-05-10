@@ -15,8 +15,8 @@ export const twMergeCustom = extendTailwindMerge({
         {
           shadow: [
             "neutral-xs", "neutral-sm", "neutral-md", "neutral-lg", "neutral-xl", "neutral-2xl", "neutral-3xl",
-            "action-xs", "action-sm", "action-md", "action-lg",
-            "danger-xs", "danger-sm", "danger-md",
+            "action-xs",  "action-sm",  "action-md",  "action-lg",  "action-xl",  "action-2xl",  "action-3xl",
+            "danger-xs",  "danger-sm",  "danger-md",  "danger-lg",  "danger-xl",  "danger-2xl",  "danger-3xl",
           ],
         },
       ],
