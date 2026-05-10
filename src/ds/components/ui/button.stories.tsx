@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react"
 import { Button } from "./button"
+import { Icon } from "./icon"
 
 const meta: Meta<typeof Button> = {
   title: "UI/Button",
@@ -53,6 +54,23 @@ export const Grouped: Story = {
       <Button group="left" variant="tertiary">Left</Button>
       <Button group="middle" variant="tertiary">Middle</Button>
       <Button group="right" variant="tertiary">Right</Button>
+    </div>
+  ),
+}
+
+export const WithIcons: Story = {
+  render: () => (
+    <div className="flex flex-wrap items-center gap-3">
+      <Button icon={<Icon name="search" />}>Left icon</Button>
+      <Button icon={<Icon name="arrow-right" />} iconPosition="right" variant="secondary">
+        Right icon
+      </Button>
+      <Button icon={<Icon name="arrow-up" />} iconPosition="top" variant="tertiary">
+        Top
+      </Button>
+      <Button icon={<Icon name="arrow-down" />} iconPosition="bottom" variant="quiet">
+        Bottom
+      </Button>
     </div>
   ),
 }

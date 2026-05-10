@@ -159,15 +159,45 @@ const badgeVariants = cva(
   }
 )
 
-type BadgeProps = React.ComponentProps<"span"> & VariantProps<typeof badgeVariants>
+type BadgeProps = React.ComponentProps<"span"> &
+  VariantProps<typeof badgeVariants> & {
+    icon?: React.ReactNode
+    iconPosition?: "left" | "right" | "top" | "bottom"
+  }
 
-function Badge({ variant, size, shape, fill, shouldHover, className, ...props }: BadgeProps) {
+function Badge({
+  variant,
+  size,
+  shape,
+  fill,
+  shouldHover,
+  icon,
+  iconPosition = "left",
+  children,
+  className,
+  ...props
+}: BadgeProps) {
+  const isVertical = iconPosition === "top" || iconPosition === "bottom"
+  const iconNode = icon ? (
+    <span data-slot="badge-icon" className="inline-flex shrink-0 items-center justify-center">
+      {icon}
+    </span>
+  ) : null
+
   return (
     <span
       data-slot="badge"
-      className={cn(badgeVariants({ variant, size, shape, fill, shouldHover, className }))}
+      className={cn(
+        badgeVariants({ variant, size, shape, fill, shouldHover }),
+        isVertical && "h-auto min-h-7 flex-col gap-1 py-1.5",
+        className
+      )}
       {...props}
-    />
+    >
+      {iconPosition === "left" || iconPosition === "top" ? iconNode : null}
+      {children}
+      {iconPosition === "right" || iconPosition === "bottom" ? iconNode : null}
+    </span>
   )
 }
 

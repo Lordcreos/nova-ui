@@ -122,18 +122,35 @@ const buttonVariants = cva(
 type ButtonProps = React.ComponentPropsWithoutRef<"button"> &
   VariantProps<typeof buttonVariants> & {
     asChild?: boolean
+    icon?: React.ReactNode
+    iconPosition?: "left" | "right" | "top" | "bottom"
   }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ variant, size, group, asChild, className, ...props }, ref) => {
+  ({ variant, size, group, asChild, className, icon, iconPosition = "left", children, ...props }, ref) => {
     const Comp = asChild ? Slot : "button"
+    const isVertical = iconPosition === "top" || iconPosition === "bottom"
+    const iconNode = icon ? (
+      <span data-slot="button-icon" className="inline-flex shrink-0 items-center justify-center">
+        {icon}
+      </span>
+    ) : null
+
     return (
       <Comp
         ref={ref}
         data-slot="button"
-        className={cn(buttonVariants({ variant, size, group, className }))}
+        className={cn(
+          buttonVariants({ variant, size, group }),
+          isVertical && "h-auto min-h-10 flex-col gap-1.5 py-2",
+          className
+        )}
         {...props}
-      />
+      >
+        {iconPosition === "left" || iconPosition === "top" ? iconNode : null}
+        {children}
+        {iconPosition === "right" || iconPosition === "bottom" ? iconNode : null}
+      </Comp>
     )
   }
 )

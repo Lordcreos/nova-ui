@@ -4,7 +4,6 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "../../lib/utils"
 import { inputVariants } from "./input"
 
-const Select = SelectPrimitive.Root
 const SelectGroup = SelectPrimitive.Group
 const SelectValue = SelectPrimitive.Value
 
@@ -68,6 +67,23 @@ type SelectTriggerProps = React.ComponentProps<typeof SelectPrimitive.Trigger> &
     isLoading?: boolean
   }
 
+type SelectProps = React.ComponentProps<typeof SelectPrimitive.Root> &
+  Pick<SelectTriggerProps, "group" | "variant">
+
+function Select({ group, variant, children, ...props }: SelectProps) {
+  const enhancedChildren = React.Children.map(children, (child) => {
+    if (!React.isValidElement(child) || child.type !== SelectTrigger) return child
+    const trigger = child as React.ReactElement<SelectTriggerProps>
+
+    return React.cloneElement(trigger, {
+      group: trigger.props.group ?? group,
+      variant: trigger.props.variant ?? variant,
+    })
+  })
+
+  return <SelectPrimitive.Root {...props}>{enhancedChildren}</SelectPrimitive.Root>
+}
+
 function SelectTrigger({
   variant,
   group,
@@ -81,7 +97,7 @@ function SelectTrigger({
       data-slot="select-trigger"
       className={cn(
         inputVariants({ variant, group }),
-        "cursor-pointer",
+        "group cursor-pointer",
         className
       )}
       {...props}

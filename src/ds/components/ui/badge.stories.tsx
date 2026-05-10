@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react"
 import { Badge } from "./badge"
+import { Icon } from "./icon"
 
 const meta: Meta<typeof Badge> = {
   title: "UI/Badge",
@@ -49,6 +50,25 @@ export const Sizes: Story = {
       <Badge size="xs">xs</Badge>
       <Badge size="sm">sm</Badge>
       <Badge size="default">default</Badge>
+    </div>
+  ),
+}
+
+export const WithIcons: Story = {
+  render: () => (
+    <div className="flex flex-wrap items-center gap-3">
+      <Badge icon={<Icon name="check" size="xs" />} variant="success">
+        Left
+      </Badge>
+      <Badge icon={<Icon name="arrow-right" size="xs" />} iconPosition="right" variant="action">
+        Right
+      </Badge>
+      <Badge icon={<Icon name="arrow-up" size="xs" />} iconPosition="top" variant="info">
+        Top
+      </Badge>
+      <Badge icon={<Icon name="arrow-down" size="xs" />} iconPosition="bottom" variant="warning">
+        Bottom
+      </Badge>
     </div>
   ),
 }
