@@ -6,10 +6,17 @@ const meta: Meta<typeof Tooltip> = {
   title: "UI/Tooltip",
   component: Tooltip,
   tags: ["autodocs"],
+  decorators: [
+    (Story) => (
+      <div className="flex items-center justify-center py-10 px-16">
+        <Story />
+      </div>
+    ),
+  ],
   parameters: {
     layout: "centered",
     docs: {
-      story: { inline: false, height: "120px" },
+      story: { inline: true },
     },
   },
 }
@@ -19,7 +26,7 @@ type Story = StoryObj<typeof Tooltip>
 
 export const Default: Story = {
   render: () => (
-    <Tooltip open>
+    <Tooltip>
       <TooltipTrigger asChild>
         <Button variant="tertiary">Hover me</Button>
       </TooltipTrigger>
@@ -29,13 +36,10 @@ export const Default: Story = {
 }
 
 export const Sides: Story = {
-  parameters: {
-    docs: { story: { inline: false, height: "280px" } },
-  },
   render: () => (
     <div className="grid grid-cols-2 gap-16 p-12">
       {(["top", "right", "bottom", "left"] as const).map((side) => (
-        <Tooltip key={side} open>
+        <Tooltip key={side}>
           <TooltipTrigger asChild>
             <Button variant="tertiary">{side}</Button>
           </TooltipTrigger>

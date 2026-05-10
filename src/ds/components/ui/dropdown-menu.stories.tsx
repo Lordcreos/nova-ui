@@ -23,7 +23,7 @@ const meta: Meta<typeof DropdownMenu> = {
   parameters: {
     layout: "centered",
     docs: {
-      story: { inline: false, height: "260px" },
+      story: { inline: false, height: "320px" },
     },
   },
 }
@@ -33,7 +33,7 @@ type Story = StoryObj<typeof DropdownMenu>
 
 export const Default: Story = {
   render: () => (
-    <DropdownMenu defaultOpen>
+    <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="tertiary">Open menu</Button>
       </DropdownMenuTrigger>
@@ -51,7 +51,7 @@ export const Default: Story = {
 
 export const Selection: Story = {
   render: () => (
-    <DropdownMenu defaultOpen>
+    <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="tertiary">View options</Button>
       </DropdownMenuTrigger>
@@ -71,7 +71,7 @@ export const Selection: Story = {
 
 export const Submenu: Story = {
   render: () => (
-    <DropdownMenu defaultOpen>
+    <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="tertiary">Share</Button>
       </DropdownMenuTrigger>

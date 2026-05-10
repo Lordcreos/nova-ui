@@ -9,7 +9,7 @@ const meta: Meta<typeof Popover> = {
   parameters: {
     layout: "centered",
     docs: {
-      story: { inline: false, height: "220px" },
+      story: { inline: false, height: "280px" },
     },
   },
 }
@@ -19,7 +19,7 @@ type Story = StoryObj<typeof Popover>
 
 export const Default: Story = {
   render: () => (
-    <Popover defaultOpen>
+    <Popover>
       <PopoverTrigger asChild>
         <Button variant="tertiary">Open popover</Button>
       </PopoverTrigger>
