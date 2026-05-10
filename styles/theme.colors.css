@@ -125,6 +125,7 @@
   --color-red-950: #450a0a;
 
   /* Red Alpha */
+  --color-red-alpha-50:  rgba(239, 68, 68, 0.04);
   --color-red-alpha-100: rgba(239, 68, 68, 0.08);
   --color-red-alpha-200: rgba(239, 68, 68, 0.16);
   --color-red-alpha-300: rgba(239, 68, 68, 0.24);
