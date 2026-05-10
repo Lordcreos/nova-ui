@@ -3,6 +3,10 @@
    Breakpoints · Section padding utilities
    ============================================================ */
 
+/* Force Tailwind to emit all section-padding utilities even when
+   class names are composed dynamically in components or stories. */
+@source inline("{p,px,py,pt,pr,pb,pl}-section-{xs,sm,md,lg,xl}");
+
 @theme {
   /* ----------------------------------------------------------
      BREAKPOINTS

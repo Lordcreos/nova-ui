@@ -34,16 +34,28 @@ type Story = StoryObj<typeof meta>
 type Token = { name: string; value: string }
 
 function ColorTile({ name, value, border = false }: Token & { border?: boolean }) {
+  const isPrimitive = value.startsWith("--color-")
+  const twName = isPrimitive ? value.replace("--color-", "") : null
+
   return (
-    <div className="grid grid-cols-[64px_1fr] items-center gap-3 rounded-lg border border-[var(--border-neutral-quiet)] bg-[var(--neutral-object)] p-3">
+    <div className="grid grid-cols-[56px_1fr] items-start gap-3 rounded-lg border border-[var(--border-neutral-quiet)] bg-[var(--neutral-object)] p-3">
       <div
-        className="h-14 w-14 rounded-md border border-[var(--border-neutral-quiet)]"
+        className="mt-0.5 h-12 w-12 flex-shrink-0 rounded-md border border-[var(--border-neutral-quiet)]"
         style={border ? { borderColor: `var(${value})`, borderWidth: 2 } : { backgroundColor: `var(${value})` }}
         title={value}
       />
       <div className="min-w-0">
         <div className="truncate text-sm font-semibold text-[var(--text-heading)]">{name}</div>
-        <code className="mt-1 block truncate text-[10px] text-[var(--text-body-quiet)]">{value}</code>
+        <code className="mt-0.5 block truncate text-[10px] text-[var(--text-body-quiet)]">{value}</code>
+        {twName ? (
+          <div className="mt-1 flex flex-wrap gap-x-2 gap-y-0.5">
+            <code className="text-[10px] text-[var(--text-action)]">bg-{twName}</code>
+            <code className="text-[10px] text-[var(--text-action)]">text-{twName}</code>
+            <code className="text-[10px] text-[var(--text-action)]">border-{twName}</code>
+          </div>
+        ) : (
+          <code className="mt-1 block truncate text-[10px] text-[var(--text-body-quiet)]">bg-[var({value})]</code>
+        )}
       </div>
     </div>
   )
@@ -211,6 +223,13 @@ export const PrimitivePalette: Story = {
         ["Violet", scale("violet")],
         ["Amber", scale("amber")],
         ["Red", scale("red")],
+        ["White", [
+          { name: "white", value: "--color-white" },
+          { name: "white · alpha-50", value: "--color-white-alpha-50" },
+          { name: "white · alpha-100", value: "--color-white-alpha-100" },
+          { name: "white · alpha-150", value: "--color-white-alpha-150" },
+          { name: "white · alpha-300", value: "--color-white-alpha-300" },
+        ] as Token[]],
       ].map(([title, tokens]) => (
         <TokenSection key={title as string} title={title as string} tokens={tokens as Token[]} />
       ))}

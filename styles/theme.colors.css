@@ -35,6 +35,15 @@
   --color-gray-alpha-800: rgba(17, 24, 39, 0.84);
   --color-gray-alpha-900: rgba(17, 24, 39, 0.96);
 
+  /* White */
+  --color-white: #ffffff;
+
+  /* White Alpha (overlays on dark surfaces) */
+  --color-white-alpha-50:  rgba(255, 255, 255, 0.03);
+  --color-white-alpha-100: rgba(255, 255, 255, 0.06);
+  --color-white-alpha-150: rgba(255, 255, 255, 0.09);
+  --color-white-alpha-300: rgba(255, 255, 255, 0.18);
+
   /* Blue */
   --color-blue-50: #eff6ff;
   --color-blue-100: #dbeafe;
@@ -174,7 +183,7 @@
   /* Neutral */
   --neutral-background: var(--color-gray-50);
   --neutral-foreground: var(--color-gray-100);
-  --neutral-object: #ffffff;
+  --neutral-object: var(--color-white);
   --neutral-object-accent-silent: var(--color-gray-alpha-50);
   --neutral-object-accent-quiet: var(--color-gray-alpha-100);
   --neutral-object-accent: var(--color-gray-alpha-150);
@@ -198,7 +207,7 @@
   --text-warning: var(--color-amber-700);
   --text-danger: var(--color-red-600);
 
-  --text-on-solid: #ffffff;
+  --text-on-solid: var(--color-white);
   --text-on-disabled: var(--color-gray-400);
 
   /* ----------------------------------------------------------
@@ -238,10 +247,10 @@
   --neutral-background:            var(--color-gray-950);
   --neutral-foreground:            var(--color-gray-900);
   --neutral-object:                var(--color-gray-800);
-  --neutral-object-accent-silent:  rgba(255, 255, 255, 0.03);
-  --neutral-object-accent-quiet:   rgba(255, 255, 255, 0.06);
-  --neutral-object-accent:         rgba(255, 255, 255, 0.09);
-  --neutral-object-accent-loud:    rgba(255, 255, 255, 0.18);
+  --neutral-object-accent-silent:  var(--color-white-alpha-50);
+  --neutral-object-accent-quiet:   var(--color-white-alpha-100);
+  --neutral-object-accent:         var(--color-white-alpha-150);
+  --neutral-object-accent-loud:    var(--color-white-alpha-300);
 
   /* Action */
   --surface-action-solid:         var(--color-blue-500);
@@ -297,7 +306,7 @@
   --text-warning:  var(--color-amber-400);
   --text-danger:   var(--color-red-400);
 
-  --text-on-solid:    #ffffff;
+  --text-on-solid:    var(--color-white);
   --text-on-disabled: var(--color-gray-600);
 
   /* ----------------------------------------------------------
