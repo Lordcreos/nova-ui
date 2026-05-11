@@ -1,5 +1,7 @@
 node_modules/
 dist/
+showcase-static/
+*.log
 *.local
 .DS_Store
 .claude/

@@ -42,6 +42,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -p tsconfig.build.json && vite build && node postbuild.cjs",
+    "build:showcase": "vite build --config vite.showcase.config.ts",
     "build:types": "tsc -p tsconfig.build.json",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
