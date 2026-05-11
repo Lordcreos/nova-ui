@@ -36,18 +36,20 @@ import "./showcase.css"
 
 const sections = [
   { id: "overview", label: "Overview", group: "Start" },
+  { id: "install", label: "Installation", group: "Start" },
   { id: "foundations", label: "Foundations", group: "System" },
   { id: "components", label: "Components", group: "Library" },
   { id: "forms", label: "Forms", group: "Library" },
   { id: "patterns", label: "Patterns", group: "Experience" },
+  { id: "cli", label: "CLI", group: "Delivery" },
   { id: "ship", label: "Ship", group: "Delivery" },
 ]
 
 const stats = [
-  ["34+", "Components"],
-  ["8", "New primitives"],
+  ["40+", "Components"],
+  ["3", "CLI commands"],
   ["7", "Token layers"],
-  ["AA", "Ready contrast"],
+  ["AA", "WCAG contrast"],
 ]
 
 const palette = [
@@ -66,6 +68,41 @@ const componentRows = [
   { name: "Pagination", status: "New", usage: "Lists and data views" },
 ]
 
+const componentCatalog = [
+  {
+    category: "UI",
+    variant: "action" as const,
+    count: 34,
+    items: [
+      "Accordion", "Alert", "Avatar", "Badge", "Breadcrumb",
+      "Button", "Calendar", "Card", "Checkbox", "Dropdown Menu",
+      "Empty State", "Helper Text", "Icon", "Input", "Label",
+      "Modal", "Page Tabs", "Pagination", "Popover", "Progress",
+      "Radio Button", "Row Card", "Scroll Area", "Segmented Control",
+      "Separator", "Select", "Skeleton", "Spinner", "Switch",
+      "Table", "Textarea", "Toast", "Toggle", "Tooltip",
+    ],
+  },
+  {
+    category: "Form",
+    variant: "info" as const,
+    count: 6,
+    items: ["TextField", "TextareaField", "FileDropZone", "FileItem", "GroupTextField", "SearchableSelect"],
+  },
+  {
+    category: "Blocks",
+    variant: "success" as const,
+    count: 2,
+    items: ["Logs", "TablePagination"],
+  },
+  {
+    category: "Typography",
+    variant: "neutral" as const,
+    count: 2,
+    items: ["Heading", "Body"],
+  },
+]
+
 function groupSections() {
   return sections.reduce<Record<string, typeof sections>>((groups, section) => {
     const group = groups[section.group] ?? []
@@ -73,6 +110,14 @@ function groupSections() {
     groups[section.group] = group
     return groups
   }, {})
+}
+
+function CodeBlock({ children }: { children: string }) {
+  return (
+    <pre className="showcase-code">
+      <code>{children}</code>
+    </pre>
+  )
 }
 
 function Sidebar() {
@@ -105,7 +150,7 @@ function Sidebar() {
       <Card className="showcase-sidebar-card">
         <CardContent className="p-3">
           <Body size="xs" color="quiet">
-            Static documentation page built from the local component library.
+            @nova-ui/components v0.1.0 · MIT license
           </Body>
         </CardContent>
       </Card>
@@ -131,9 +176,7 @@ function Topbar() {
         <Badge variant="success" shape="pill" icon={<Icon name="circle-check" />}>
           Build passing
         </Badge>
-        <Button variant="tertiary" size="sm" icon={<Icon name="book-open" />}>
-          Storybook
-        </Button>
+
       </div>
     </header>
   )
@@ -144,22 +187,22 @@ function Hero() {
     <section id="overview" className="showcase-hero">
       <div className="showcase-hero-copy">
         <Badge variant="action" shape="pill" className="showcase-eyebrow" icon={<Icon name="rocket" />}>
-          Presentable static docs
+          v0.1.0 — now available
         </Badge>
         <Heading variant="h3xl" color="loud" className="showcase-hero-title">
-          A calm, polished design system showcase for product teams.
+          A professional React design system, ready to ship.
         </Heading>
         <Body size="lg" color="quiet" className="showcase-hero-subtitle">
-          Publish this page as a static site to present Nova UI: tokens, primitives, forms,
-          states, and reusable product patterns in one curated surface.
+          40+ accessible components, a full design token system, and a CLI to set up any
+          React project in seconds. Built with Radix UI, Tailwind CSS v4, and TypeScript.
         </Body>
         <div className="showcase-hero-actions">
-          <Button size="lg" icon={<Icon name="play" />}>
-            Explore components
-          </Button>
-          <Button variant="tertiary" size="lg" icon={<Icon name="package" />}>
-            View package
-          </Button>
+          <a href="#install" className="showcase-hero-link">
+            <Button size="lg" icon={<Icon name="download" />}>Get started</Button>
+          </a>
+          <a href="#components" className="showcase-hero-link">
+            <Button variant="tertiary" size="lg" icon={<Icon name="layout-grid" />}>Browse components</Button>
+          </a>
         </div>
       </div>
       <Card className="showcase-hero-panel">
@@ -221,6 +264,116 @@ function SectionHeader({
       <Heading variant="h1" color="loud">{title}</Heading>
       <Body color="quiet">{description}</Body>
     </div>
+  )
+}
+
+function InstallSection() {
+  const [pm, setPm] = useState<"pnpm" | "npm" | "yarn">("pnpm")
+
+  const cmds = {
+    pnpm: { install: "pnpm add @nova-ui/components", peer: "pnpm add react react-dom" },
+    npm:  { install: "npm install @nova-ui/components", peer: "npm install react react-dom" },
+    yarn: { install: "yarn add @nova-ui/components", peer: "yarn add react react-dom" },
+  }
+
+  return (
+    <section id="install" className="showcase-section">
+      <SectionHeader
+        eyebrow="Installation"
+        title="Up and running in minutes"
+        description="Install the package, import the theme once, and start importing components anywhere in your app."
+      />
+      <div className="showcase-grid two">
+        <Card>
+          <CardHeader>
+            <div>
+              <CardTitle>Install the package</CardTitle>
+              <CardDescription>Available on npm — pick your package manager</CardDescription>
+            </div>
+            <SegmentedControl value={pm} onValueChange={(v) => setPm(v as typeof pm)}>
+              <SegmentedControlItem value="pnpm">pnpm</SegmentedControlItem>
+              <SegmentedControlItem value="npm">npm</SegmentedControlItem>
+              <SegmentedControlItem value="yarn">yarn</SegmentedControlItem>
+            </SegmentedControl>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div>
+              <Body size="xs" color="quiet" className="showcase-code-label">Install</Body>
+              <CodeBlock>{cmds[pm].install}</CodeBlock>
+            </div>
+            <div>
+              <Body size="xs" color="quiet" className="showcase-code-label">Peer dependencies</Body>
+              <CodeBlock>{cmds[pm].peer}</CodeBlock>
+            </div>
+            <Alert variant="info">
+              <AlertIcon><Icon name="info" /></AlertIcon>
+              <AlertContent>
+                <AlertTitle>Requires Node.js ≥ 18, React ≥ 18, Tailwind CSS v4</AlertTitle>
+              </AlertContent>
+            </Alert>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle>Theme setup</CardTitle>
+            <CardDescription>Import design tokens once — they apply to every component</CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div>
+              <Body size="xs" color="quiet" className="showcase-code-label">main.tsx · _app.tsx · layout.tsx</Body>
+              <CodeBlock>{`import "@nova-ui/components/styles";`}</CodeBlock>
+            </div>
+            <div>
+              <Body size="xs" color="quiet" className="showcase-code-label">globals.css — Tailwind CSS v4</Body>
+              <CodeBlock>{`@import "tailwindcss";\n@import "@nova-ui/components/styles";`}</CodeBlock>
+            </div>
+            <Separator />
+            <div>
+              <Body size="xs" color="quiet" className="showcase-code-label">Quick start</Body>
+              <CodeBlock>{`import { Button, Badge, Alert }\n  from "@nova-ui/components";\n\n<Button variant="default">Get started</Button>`}</CodeBlock>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+      <div className="showcase-grid three">
+        <Card>
+          <CardHeader>
+            <div className="showcase-install-subpath-header">
+              <Badge variant="action" shape="pill">ui</Badge>
+              <CardTitle>UI components</CardTitle>
+            </div>
+            <CardDescription>@nova-ui/components/ui</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <CodeBlock>{`import {\n  Button, Badge, Alert,\n  Modal, Table, Tooltip\n} from "@nova-ui/components/ui";`}</CodeBlock>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader>
+            <div className="showcase-install-subpath-header">
+              <Badge variant="info" shape="pill">form</Badge>
+              <CardTitle>Form components</CardTitle>
+            </div>
+            <CardDescription>@nova-ui/components/form</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <CodeBlock>{`import {\n  TextField, TextareaField,\n  SearchableSelect, FileDropZone\n} from "@nova-ui/components/form";`}</CodeBlock>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader>
+            <div className="showcase-install-subpath-header">
+              <Badge variant="neutral" shape="pill">more</Badge>
+              <CardTitle>Typography & hooks</CardTitle>
+            </div>
+            <CardDescription>@nova-ui/components/typography · /hooks</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <CodeBlock>{`import { Heading, Body }\n  from "@nova-ui/components/typography";\n\nimport { useToast }\n  from "@nova-ui/components/hooks";`}</CodeBlock>
+          </CardContent>
+        </Card>
+      </div>
+    </section>
   )
 }
 
@@ -299,7 +452,7 @@ function ComponentsSection() {
       <SectionHeader
         eyebrow="Components"
         title="A polished primitive layer"
-        description="Buttons, status, selection controls, data display, loading states, and feedback primitives."
+        description="Buttons, status, selection controls, data display, loading states, and feedback primitives — 40+ components across 4 categories."
       />
       <Card>
         <CardHeader>
@@ -432,6 +585,31 @@ function ComponentsSection() {
             </div>
           </CardContent>
         </Card>
+      </div>
+
+      {/* Full component catalog */}
+      <div className="showcase-catalog">
+        <div className="showcase-catalog-title">
+          <Heading variant="h3">Complete component catalog</Heading>
+          <Body color="quiet">All exported components grouped by subpath</Body>
+        </div>
+        <div className="showcase-catalog-grid">
+          {componentCatalog.map((group) => (
+            <div key={group.category} className="showcase-catalog-group">
+              <div className="showcase-catalog-group-header">
+                <div className="showcase-catalog-group-meta">
+                  <Badge variant={group.variant} shape="pill">{group.category}</Badge>
+                  <Body size="xs" color="quiet">{group.count} components</Body>
+                </div>
+              </div>
+              <div className="showcase-catalog-chips">
+                {group.items.map((name) => (
+                  <span key={name} className="showcase-catalog-chip">{name}</span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   )
@@ -571,6 +749,97 @@ function PatternsSection() {
   )
 }
 
+function CLISection() {
+  return (
+    <section id="cli" className="showcase-section">
+      <SectionHeader
+        eyebrow="CLI"
+        title="@nova-ui/cli — project tooling"
+        description="Initialize projects, scaffold component examples, and explore the registry directly from the terminal."
+      />
+      <Card className="showcase-cli-banner">
+        <CardContent className="showcase-cli-banner-content">
+          <div>
+            <Body variant="bold">Install the CLI</Body>
+            <Body size="sm" color="quiet">Available globally or run any command with npx</Body>
+          </div>
+          <div className="showcase-cli-installs">
+            <div>
+              <Body size="xs" color="quiet" className="showcase-code-label">Global install</Body>
+              <CodeBlock>{`npm install -g @nova-ui/cli`}</CodeBlock>
+            </div>
+            <div className="showcase-cli-or">
+              <Body size="xs" color="quiet">or</Body>
+            </div>
+            <div>
+              <Body size="xs" color="quiet" className="showcase-code-label">Without installing</Body>
+              <CodeBlock>{`npx @nova-ui/cli <command>`}</CodeBlock>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+      <div className="showcase-grid three">
+        <Card>
+          <CardHeader>
+            <Badge variant="action" shape="pill" icon={<Icon name="zap" />}>init</Badge>
+            <CardTitle>Set up your project</CardTitle>
+            <CardDescription>
+              Detects your framework and package manager. Installs the package and injects the CSS import automatically.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <CodeBlock>{`nova-ui init`}</CodeBlock>
+            <div>
+              <Body size="xs" color="quiet" className="showcase-code-label">Supported frameworks</Body>
+              <div className="showcase-cli-frameworks">
+                {["Vite", "Next.js", "Remix"].map((f) => (
+                  <Badge key={f} variant="neutral" shape="pill">{f}</Badge>
+                ))}
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader>
+            <Badge variant="neutral" shape="pill" icon={<Icon name="plus" />}>add</Badge>
+            <CardTitle>Scaffold a component</CardTitle>
+            <CardDescription>
+              Generates a ready-to-use .tsx example file for any component in the registry. Use --dry to preview.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <CodeBlock>{`nova-ui add button\nnova-ui add modal --dry\nnova-ui add table --dir src/ui`}</CodeBlock>
+            <Alert variant="success">
+              <AlertIcon><Icon name="file-code-2" /></AlertIcon>
+              <AlertContent>
+                <AlertTitle>Creates ButtonExample.tsx with working JSX</AlertTitle>
+              </AlertContent>
+            </Alert>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader>
+            <Badge variant="neutral" shape="pill" icon={<Icon name="list" />}>list</Badge>
+            <CardTitle>Browse the registry</CardTitle>
+            <CardDescription>
+              Lists all components with exports and descriptions. Filter by category: ui, form, blocks, typography.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <CodeBlock>{`nova-ui list\nnova-ui list --category form\nnova-ui list --category ui`}</CodeBlock>
+            <Alert variant="info">
+              <AlertIcon><Icon name="info" /></AlertIcon>
+              <AlertContent>
+                <AlertTitle>Shows exports, description, and import path</AlertTitle>
+              </AlertContent>
+            </Alert>
+          </CardContent>
+        </Card>
+      </div>
+    </section>
+  )
+}
+
 function ShipSection() {
   return (
     <section id="ship" className="showcase-section showcase-ship">
@@ -602,10 +871,12 @@ export function Playground() {
         <Topbar />
         <div className="showcase-content">
           <Hero />
+          <InstallSection />
           <FoundationsSection />
           <ComponentsSection />
           <FormsSection />
           <PatternsSection />
+          <CLISection />
           <ShipSection />
         </div>
       </main>

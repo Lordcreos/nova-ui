@@ -316,6 +316,136 @@ body {
   margin: 14px 0 8px;
 }
 
+/* Hero link wrapper */
+.showcase-hero-link {
+  display: contents;
+}
+
+/* Code blocks */
+.showcase-code {
+  display: block;
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: var(--neutral-object-accent-silent);
+  border: 1px solid var(--border-neutral-quiet);
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--text-body);
+  white-space: pre;
+  overflow-x: auto;
+  font-family: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas, monospace;
+}
+
+.showcase-code code {
+  font-family: inherit;
+}
+
+.showcase-code-label {
+  display: block;
+  margin-bottom: 6px;
+}
+
+/* Install section */
+.showcase-install-subpath-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* CLI section */
+.showcase-cli-banner {
+  margin-bottom: 0;
+}
+
+.showcase-cli-banner-content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px;
+  flex-wrap: wrap;
+}
+
+.showcase-cli-installs {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  flex-wrap: wrap;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.showcase-cli-or {
+  padding-bottom: 10px;
+}
+
+.showcase-cli-frameworks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+/* Component catalog */
+.showcase-catalog {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.showcase-catalog-title {
+  margin-bottom: 4px;
+}
+
+.showcase-catalog-title h2 {
+  margin: 0 0 4px;
+}
+
+.showcase-catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.showcase-catalog-group {
+  padding: 20px 22px;
+  border: 1px solid var(--border-neutral-quiet);
+  border-radius: 12px;
+  background: var(--neutral-background);
+}
+
+.showcase-catalog-group-header {
+  margin-bottom: 14px;
+}
+
+.showcase-catalog-group-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.showcase-catalog-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.showcase-catalog-chip {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 6px;
+  background: var(--neutral-object-accent-silent);
+  border: 1px solid var(--border-neutral-quiet);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-body);
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
 @media (max-width: 1100px) {
   .showcase-shell {
     grid-template-columns: 1fr;
@@ -332,8 +462,15 @@ body {
   .showcase-hero,
   .showcase-grid.two,
   .showcase-grid.three,
-  .showcase-ship-content {
+  .showcase-ship-content,
+  .showcase-catalog-grid {
     grid-template-columns: 1fr;
+  }
+
+  .showcase-cli-banner-content,
+  .showcase-cli-installs {
+    flex-direction: column;
+    justify-content: flex-start;
   }
 }
 
