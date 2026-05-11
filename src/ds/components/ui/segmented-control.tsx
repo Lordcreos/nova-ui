@@ -20,7 +20,7 @@ const segmentedControlVariants = cva(
 
 const segmentedItemVariants = cva(
   [
-    "inline-flex items-center justify-center gap-1.5 font-semibold cursor-pointer",
+    "inline-flex items-center justify-center gap-1.5 font-semibold cursor-pointer select-none",
     "rounded-md transition-all duration-150",
     "focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[var(--ring-action)]/30",
     "disabled:pointer-events-none disabled:opacity-50",
