@@ -156,7 +156,7 @@ function CustomToast({
       case "success":
         return (
           <Avatar shape="square" size="xs">
-            <AvatarFallback shape="square" color="success" type="icon">
+            <AvatarFallback color="success" type="icon">
               <Icon name="circle-check" size="sm" />
             </AvatarFallback>
           </Avatar>
@@ -164,7 +164,7 @@ function CustomToast({
       case "error":
         return (
           <Avatar shape="square" size="xs">
-            <AvatarFallback shape="square" color="danger" type="icon">
+            <AvatarFallback color="danger" type="icon">
               <Icon name="circle-x" size="sm" />
             </AvatarFallback>
           </Avatar>
@@ -172,7 +172,7 @@ function CustomToast({
       case "info":
         return (
           <Avatar shape="square" size="xs">
-            <AvatarFallback shape="square" color="action" type="icon">
+            <AvatarFallback color="action" type="icon">
               <Icon name="info" size="sm" />
             </AvatarFallback>
           </Avatar>
@@ -180,7 +180,7 @@ function CustomToast({
       case "warning":
         return (
           <Avatar shape="square" size="xs">
-            <AvatarFallback shape="square" color="warning" type="icon">
+            <AvatarFallback color="warning" type="icon">
               <Icon name="triangle-alert" size="sm" />
             </AvatarFallback>
           </Avatar>

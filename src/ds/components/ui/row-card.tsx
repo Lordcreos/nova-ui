@@ -2,7 +2,6 @@ import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "../../lib/utils"
 import { Icon } from "./icon"
-import type { IconType } from "./icon"
 
 const rowCardVariants = cva(
   [
@@ -30,7 +29,7 @@ type RowCardProps = React.ComponentProps<"div"> &
   VariantProps<typeof rowCardVariants> & {
     title?: string
     subtitle?: string
-    icon?: { name: string; type?: IconType }
+    icon?: { name: string }
   }
 
 function RowCard({ color, title, subtitle, icon, className, children, ...props }: RowCardProps) {
@@ -42,7 +41,7 @@ function RowCard({ color, title, subtitle, icon, className, children, ...props }
     >
       {icon && (
         <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[var(--neutral-foreground)] text-[var(--text-body-quiet)]">
-          <Icon name={icon.name} type={icon.type ?? "far"} size="sm" />
+          <Icon name={icon.name} size="sm" />
         </div>
       )}
       <div className="flex flex-1 flex-col gap-0.5 min-w-0">

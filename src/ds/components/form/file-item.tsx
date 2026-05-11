@@ -69,7 +69,7 @@ function FileItem({
       {/* File icon avatar */}
       <Avatar size="lg" shape="square">
         <AvatarFallback color={colorAvatarMap[displayColor]} type="ghost">
-          <Icon name={colorIconMap[displayColor] ?? "file"} type="far" size="sm" />
+          <Icon name={colorIconMap[displayColor] ?? "file"} size="sm" />
         </AvatarFallback>
       </Avatar>
 
@@ -110,7 +110,7 @@ function FileItem({
         <div className="shrink-0">
           {action ?? (
             <Button variant="ghost" size="icon" onClick={onAction} aria-label="File action">
-              <Icon name="ellipsis" type="far" size="sm" />
+              <Icon name="ellipsis" size="sm" />
             </Button>
           )}
         </div>

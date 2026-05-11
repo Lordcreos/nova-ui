@@ -117,7 +117,7 @@ function ModalHeader({
             aria-label="Close"
             className="-mt-1 -mr-2 flex-shrink-0"
           >
-            <Icon name="X" size={16} />
+            <Icon name="x" size="sm" />
           </Button>
         </ModalClose>
       )}

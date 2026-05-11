@@ -54,7 +54,9 @@ function ColorTile({ name, value, border = false }: Token & { border?: boolean }
             <code className="text-[10px] text-[var(--text-action)]">border-{twName}</code>
           </div>
         ) : (
-          <code className="mt-1 block truncate text-[10px] text-[var(--text-body-quiet)]">bg-[var({value})]</code>
+          <code className="mt-1 block truncate text-[10px] text-[var(--text-body-quiet)]">
+            {"bg"}{"-[var("}{value}{")]"}
+          </code>
         )}
       </div>
     </div>
