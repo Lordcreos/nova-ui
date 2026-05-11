@@ -8,7 +8,7 @@ import { detectFramework, findProjectRoot, readPackageJson } from "../utils/file
 
 type Framework = "vite" | "next" | "remix" | "unknown";
 
-const CSS_IMPORT = `@import "@nova-ui/components/styles";`;
+const CSS_IMPORT = `@import "@lordcreos/nova-ui/styles";`;
 
 const ENTRY_POINTS: Record<Framework, string[]> = {
   vite: ["src/index.css", "src/main.css", "src/app.css", "src/styles/globals.css"],
@@ -26,7 +26,7 @@ function findCSSEntry(framework: Framework, root: string): string | null {
 
 function injectCSSImport(cssPath: string): boolean {
   const content = readFileSync(cssPath, "utf-8");
-  if (content.includes("@nova-ui/components/styles")) {
+  if (content.includes("@lordcreos/nova-ui/styles")) {
     console.log(pc.dim("  CSS import already present."));
     return false;
   }
@@ -41,10 +41,10 @@ export async function initCommand() {
   console.log(`\n${pc.bold("Nova UI — Project setup")}\n`);
 
   const allDeps = { ...(pkg.dependencies as object ?? {}), ...(pkg.devDependencies as object ?? {}) };
-  const alreadyInstalled = "@nova-ui/components" in allDeps;
+  const alreadyInstalled = "@lordcreos/nova-ui" in allDeps;
 
   if (alreadyInstalled) {
-    console.log(`${pc.green("✓")} @nova-ui/components is already installed.`);
+    console.log(`${pc.green("✓")} @lordcreos/nova-ui is already installed.`);
   }
 
   const detectedFramework = detectFramework(root);
@@ -75,16 +75,16 @@ export async function initCommand() {
 
   if (!alreadyInstalled) {
     const shouldInstall = await confirm({
-      message: `Install @nova-ui/components with ${pm}?`,
+      message: `Install @lordcreos/nova-ui with ${pm}?`,
       default: true,
     });
 
     if (shouldInstall) {
-      const cmd = getInstallCommand(pm as "pnpm" | "npm" | "yarn", "@nova-ui/components");
+      const cmd = getInstallCommand(pm as "pnpm" | "npm" | "yarn", "@lordcreos/nova-ui");
       console.log(pc.dim(`  Running: ${cmd.join(" ")}`));
       try {
         execSync(cmd.join(" "), { cwd: root, stdio: "inherit" });
-        console.log(`${pc.green("✓")} Installed @nova-ui/components\n`);
+        console.log(`${pc.green("✓")} Installed @lordcreos/nova-ui\n`);
       } catch {
         console.error(pc.red("  Installation failed. Run it manually:"));
         console.error(pc.dim(`  ${cmd.join(" ")}\n`));
@@ -105,7 +105,7 @@ export async function initCommand() {
   }
 
   console.log(`\n${pc.bold("You're all set!")} Start using components:\n`);
-  console.log(pc.dim(`  import { Button } from "@nova-ui/components";\n`));
+  console.log(pc.dim(`  import { Button } from "@lordcreos/nova-ui";\n`));
   console.log(pc.dim(`Run ${pc.white("nova-ui list")} to see all components.`));
   console.log(pc.dim(`Run ${pc.white("nova-ui add button")} to generate a usage example.\n`));
 }

@@ -1,5 +1,5 @@
 {
-  "name": "@nova-ui/cli",
+  "name": "@lordcreos/nova-ui-cli",
   "version": "0.1.0",
   "description": "CLI for Nova UI — initialize projects and scaffold components",
   "type": "module",

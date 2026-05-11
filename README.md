@@ -10,8 +10,8 @@ Professional React design system built with Radix UI, Tailwind CSS v4, and TypeS
 
 | Package | Version | Description |
 |---|---|---|
-| `@nova-ui/components` | 0.1.0 | Component library |
-| `@nova-ui/cli` | 0.1.0 | CLI for setup and scaffolding |
+| `@lordcreos/nova-ui` | 0.1.0 | Component library |
+| `@lordcreos/nova-ui-cli` | 0.1.0 | CLI for setup and scaffolding |
 
 ---
 
@@ -19,13 +19,13 @@ Professional React design system built with Radix UI, Tailwind CSS v4, and TypeS
 
 ```bash
 # npm
-npm install @nova-ui/components
+npm install @lordcreos/nova-ui
 
 # pnpm
-pnpm add @nova-ui/components
+pnpm add @lordcreos/nova-ui
 
 # yarn
-yarn add @nova-ui/components
+yarn add @lordcreos/nova-ui
 ```
 
 ### Peer dependencies
@@ -43,7 +43,7 @@ npm install react react-dom
 In your app entry point (`main.tsx`, `_app.tsx`, or `layout.tsx`):
 
 ```ts
-import "@nova-ui/components/styles";
+import "@lordcreos/nova-ui/styles";
 ```
 
 ### 2. Configure Tailwind CSS v4
@@ -52,7 +52,7 @@ In your CSS entry file:
 
 ```css
 @import "tailwindcss";
-@import "@nova-ui/components/styles";
+@import "@lordcreos/nova-ui/styles";
 ```
 
 ---
@@ -60,7 +60,7 @@ In your CSS entry file:
 ## Quick start
 
 ```tsx
-import { Button, Badge, Alert, AlertIcon, AlertContent, AlertTitle } from "@nova-ui/components";
+import { Button, Badge, Alert, AlertIcon, AlertContent, AlertTitle } from "@lordcreos/nova-ui";
 
 export function Demo() {
   return (
@@ -144,7 +144,7 @@ export function Demo() {
 
 | Hook | Import | Description |
 |---|---|---|
-| `useToast` | `@nova-ui/components/hooks` | Trigger toast notifications programmatically |
+| `useToast` | `@lordcreos/nova-ui/hooks` | Trigger toast notifications programmatically |
 
 ---
 
@@ -153,7 +153,7 @@ export function Demo() {
 ### Button variants
 
 ```tsx
-import { Button } from "@nova-ui/components";
+import { Button } from "@lordcreos/nova-ui";
 
 <Button variant="default">Primary</Button>
 <Button variant="secondary">Secondary</Button>
@@ -173,7 +173,7 @@ import { Button } from "@nova-ui/components";
 import {
   Modal, ModalContent, ModalHeader, ModalTitle,
   ModalBody, ModalFooter, Button
-} from "@nova-ui/components";
+} from "@lordcreos/nova-ui";
 import { useState } from "react";
 
 export function ConfirmModal() {
@@ -201,7 +201,7 @@ export function ConfirmModal() {
 ### Form fields
 
 ```tsx
-import { TextField, TextareaField, SearchableSelect } from "@nova-ui/components/form";
+import { TextField, TextareaField, SearchableSelect } from "@lordcreos/nova-ui/form";
 
 <TextField
   label="Email"
@@ -232,7 +232,7 @@ import { TextField, TextareaField, SearchableSelect } from "@nova-ui/components/
 ### Table
 
 ```tsx
-import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@nova-ui/components";
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@lordcreos/nova-ui";
 
 const rows = [
   { name: "Alice", role: "Admin", status: "Active" },
@@ -262,8 +262,8 @@ const rows = [
 ### Toast
 
 ```tsx
-import { Toaster } from "@nova-ui/components";
-import { useToast } from "@nova-ui/components/hooks";
+import { Toaster } from "@lordcreos/nova-ui";
+import { useToast } from "@lordcreos/nova-ui/hooks";
 
 // Place <Toaster /> once in your app root
 function App() {
@@ -293,11 +293,11 @@ function SaveButton() {
 Import from specific subpaths for optimal tree-shaking:
 
 ```ts
-import { Button, Icon, Badge }     from "@nova-ui/components/ui";
-import { TextField, SearchableSelect } from "@nova-ui/components/form";
-import { Heading, Body }            from "@nova-ui/components/typography";
-import { TablePagination }          from "@nova-ui/components/blocks";
-import { useToast }                 from "@nova-ui/components/hooks";
+import { Button, Icon, Badge }     from "@lordcreos/nova-ui/ui";
+import { TextField, SearchableSelect } from "@lordcreos/nova-ui/form";
+import { Heading, Body }            from "@lordcreos/nova-ui/typography";
+import { TablePagination }          from "@lordcreos/nova-ui/blocks";
+import { useToast }                 from "@lordcreos/nova-ui/hooks";
 ```
 
 ---
@@ -328,7 +328,7 @@ Tokens ship as CSS custom properties in the theme file. Use them directly in you
 
 ---
 
-## CLI — `@nova-ui/cli`
+## CLI — `@lordcreos/nova-ui-cli`
 
 Speed up setup with the Nova UI CLI.
 
@@ -336,10 +336,10 @@ Speed up setup with the Nova UI CLI.
 
 ```bash
 # Global (recommended)
-npm install -g @nova-ui/cli
+npm install -g @lordcreos/nova-ui-cli
 
 # Or run directly with npx
-npx @nova-ui/cli <command>
+npx @lordcreos/nova-ui-cli <command>
 ```
 
 ### Commands
@@ -355,7 +355,7 @@ nova-ui init
 **What it does:**
 - Detects your framework (Vite, Next.js, Remix)
 - Detects your package manager (pnpm, npm, yarn)
-- Installs `@nova-ui/components` if not present
+- Installs `@lordcreos/nova-ui` if not present
 - Injects the CSS import into your entry stylesheet
 
 **Supported frameworks:**
@@ -424,7 +424,7 @@ nova-ui list --category typography
 **Output:**
 
 ```
-@nova-ui/components — available components
+@lordcreos/nova-ui — available components
 
 UI (24)
   accordion              Expandable content sections

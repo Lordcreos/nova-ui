@@ -12,7 +12,7 @@ export function listCommand(category?: string) {
   const filter = category as ComponentCategory | undefined;
   const categories: ComponentCategory[] = filter ? [filter] : ["ui", "form", "blocks", "typography"];
 
-  console.log(`\n${pc.bold("@nova-ui/components")} — available components\n`);
+  console.log(`\n${pc.bold("@lordcreos/nova-ui")} — available components\n`);
 
   for (const cat of categories) {
     const items = registry.filter((c) => c.category === cat);

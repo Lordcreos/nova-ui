@@ -147,13 +147,16 @@ function Sidebar() {
           </div>
         ))}
       </nav>
-      <Card className="showcase-sidebar-card">
-        <CardContent className="p-3">
-          <Body size="xs" color="quiet">
-            @nova-ui/components v0.1.0 · MIT license
-          </Body>
-        </CardContent>
-      </Card>
+      <div className="showcase-sidebar-links">
+        <a href="https://lordcreos.github.io/nova-ui/" target="_blank" rel="noreferrer" className="showcase-sidebar-link">
+          <Icon name="globe" size="sm" />
+          <Body size="xs">lordcreos.github.io/nova-ui</Body>
+        </a>
+        <a href="https://www.npmjs.com/package/@lordcreos/nova-ui" target="_blank" rel="noreferrer" className="showcase-sidebar-link">
+          <Icon name="package" size="sm" />
+          <Body size="xs">@lordcreos/nova-ui</Body>
+        </a>
+      </div>
     </aside>
   )
 }
@@ -271,9 +274,9 @@ function InstallSection() {
   const [pm, setPm] = useState<"pnpm" | "npm" | "yarn">("pnpm")
 
   const cmds = {
-    pnpm: { install: "pnpm add @nova-ui/components", peer: "pnpm add react react-dom" },
-    npm:  { install: "npm install @nova-ui/components", peer: "npm install react react-dom" },
-    yarn: { install: "yarn add @nova-ui/components", peer: "yarn add react react-dom" },
+    pnpm: { install: "pnpm add @lordcreos/nova-ui", peer: "pnpm add react react-dom" },
+    npm:  { install: "npm install @lordcreos/nova-ui", peer: "npm install react react-dom" },
+    yarn: { install: "yarn add @lordcreos/nova-ui", peer: "yarn add react react-dom" },
   }
 
   return (
@@ -321,16 +324,16 @@ function InstallSection() {
           <CardContent className="space-y-4">
             <div>
               <Body size="xs" color="quiet" className="showcase-code-label">main.tsx · _app.tsx · layout.tsx</Body>
-              <CodeBlock>{`import "@nova-ui/components/styles";`}</CodeBlock>
+              <CodeBlock>{`import "@lordcreos/nova-ui/styles";`}</CodeBlock>
             </div>
             <div>
               <Body size="xs" color="quiet" className="showcase-code-label">globals.css — Tailwind CSS v4</Body>
-              <CodeBlock>{`@import "tailwindcss";\n@import "@nova-ui/components/styles";`}</CodeBlock>
+              <CodeBlock>{`@import "tailwindcss";\n@import "@lordcreos/nova-ui/styles";`}</CodeBlock>
             </div>
             <Separator />
             <div>
               <Body size="xs" color="quiet" className="showcase-code-label">Quick start</Body>
-              <CodeBlock>{`import { Button, Badge, Alert }\n  from "@nova-ui/components";\n\n<Button variant="default">Get started</Button>`}</CodeBlock>
+              <CodeBlock>{`import { Button, Badge, Alert }\n  from "@lordcreos/nova-ui";\n\n<Button variant="default">Get started</Button>`}</CodeBlock>
             </div>
           </CardContent>
         </Card>
@@ -342,10 +345,10 @@ function InstallSection() {
               <Badge variant="action" shape="pill">ui</Badge>
               <CardTitle>UI components</CardTitle>
             </div>
-            <CardDescription>@nova-ui/components/ui</CardDescription>
+            <CardDescription>@lordcreos/nova-ui/ui</CardDescription>
           </CardHeader>
           <CardContent>
-            <CodeBlock>{`import {\n  Button, Badge, Alert,\n  Modal, Table, Tooltip\n} from "@nova-ui/components/ui";`}</CodeBlock>
+            <CodeBlock>{`import {\n  Button, Badge, Alert,\n  Modal, Table, Tooltip\n} from "@lordcreos/nova-ui/ui";`}</CodeBlock>
           </CardContent>
         </Card>
         <Card>
@@ -354,10 +357,10 @@ function InstallSection() {
               <Badge variant="info" shape="pill">form</Badge>
               <CardTitle>Form components</CardTitle>
             </div>
-            <CardDescription>@nova-ui/components/form</CardDescription>
+            <CardDescription>@lordcreos/nova-ui/form</CardDescription>
           </CardHeader>
           <CardContent>
-            <CodeBlock>{`import {\n  TextField, TextareaField,\n  SearchableSelect, FileDropZone\n} from "@nova-ui/components/form";`}</CodeBlock>
+            <CodeBlock>{`import {\n  TextField, TextareaField,\n  SearchableSelect, FileDropZone\n} from "@lordcreos/nova-ui/form";`}</CodeBlock>
           </CardContent>
         </Card>
         <Card>
@@ -366,10 +369,10 @@ function InstallSection() {
               <Badge variant="neutral" shape="pill">more</Badge>
               <CardTitle>Typography & hooks</CardTitle>
             </div>
-            <CardDescription>@nova-ui/components/typography · /hooks</CardDescription>
+            <CardDescription>@lordcreos/nova-ui/typography · /hooks</CardDescription>
           </CardHeader>
           <CardContent>
-            <CodeBlock>{`import { Heading, Body }\n  from "@nova-ui/components/typography";\n\nimport { useToast }\n  from "@nova-ui/components/hooks";`}</CodeBlock>
+            <CodeBlock>{`import { Heading, Body }\n  from "@lordcreos/nova-ui/typography";\n\nimport { useToast }\n  from "@lordcreos/nova-ui/hooks";`}</CodeBlock>
           </CardContent>
         </Card>
       </div>
@@ -754,7 +757,7 @@ function CLISection() {
     <section id="cli" className="showcase-section">
       <SectionHeader
         eyebrow="CLI"
-        title="@nova-ui/cli — project tooling"
+        title="@lordcreos/nova-ui-cli — project tooling"
         description="Initialize projects, scaffold component examples, and explore the registry directly from the terminal."
       />
       <Card className="showcase-cli-banner">
@@ -766,14 +769,14 @@ function CLISection() {
           <div className="showcase-cli-installs">
             <div>
               <Body size="xs" color="quiet" className="showcase-code-label">Global install</Body>
-              <CodeBlock>{`npm install -g @nova-ui/cli`}</CodeBlock>
+              <CodeBlock>{`npm install -g @lordcreos/nova-ui-cli`}</CodeBlock>
             </div>
             <div className="showcase-cli-or">
               <Body size="xs" color="quiet">or</Body>
             </div>
             <div>
               <Body size="xs" color="quiet" className="showcase-code-label">Without installing</Body>
-              <CodeBlock>{`npx @nova-ui/cli <command>`}</CodeBlock>
+              <CodeBlock>{`npx @lordcreos/nova-ui-cli <command>`}</CodeBlock>
             </div>
           </div>
         </CardContent>

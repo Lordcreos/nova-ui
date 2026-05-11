@@ -5,6 +5,7 @@ import { resolve } from "path"
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  base: process.env.BASE_URL ?? "/",
   root: ".",
   build: {
     outDir: "showcase-static",

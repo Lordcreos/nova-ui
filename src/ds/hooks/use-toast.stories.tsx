@@ -18,7 +18,7 @@ A custom hook that provides a simple and consistent API for displaying toast not
 Add \`<SonnerToaster />\` once near the root of your app:
 
 \`\`\`tsx
-import { SonnerToaster } from "@nova-ui/components/ui"
+import { SonnerToaster } from "@lordcreos/nova-ui/ui"
 
 function App() {
   return (
@@ -33,7 +33,7 @@ function App() {
 ## Usage
 
 \`\`\`tsx
-import { useToast } from "@nova-ui/components/hooks"
+import { useToast } from "@lordcreos/nova-ui/hooks"
 
 function MyComponent() {
   const { showToast, dismissToast } = useToast()

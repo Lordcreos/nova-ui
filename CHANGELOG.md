@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to `@nova-ui/components` will be documented here.
+All notable changes to `@lordcreos/nova-ui` will be documented here.
 
 ## [0.1.0] — 2026-05-11
 
