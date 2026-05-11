@@ -5,3 +5,4 @@ showcase-static/
 *.local
 .DS_Store
 .claude/
+.vite/
