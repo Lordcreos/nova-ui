@@ -34,7 +34,10 @@
     "./styles": "./dist/css/theme.css"
   },
   "files": [
-    "dist"
+    "dist",
+    "styles",
+    "README.md",
+    "CHANGELOG.md"
   ],
   "sideEffects": [
     "**/*.css"
